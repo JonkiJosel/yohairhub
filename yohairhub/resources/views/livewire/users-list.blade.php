@@ -119,7 +119,7 @@
                             <div class="flex items
                             -center">
                                 <x-button class="ml-2" wire:click="updateShowModal({{ $user->id }})">
-                                    {{ __('Edit') }}
+                                    {{ __('View') }}
                                 </x-button>
                                 <x-button class="ml-2"
     wire:click="deleteUser({{ $user->id }})"

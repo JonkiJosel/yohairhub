@@ -49,7 +49,7 @@
                     </td>
 
                     <td class="flex items-center px-6 py-4">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        @livewire('edit-role-modal', ['role' => $role], key('erm-'.$role->id))
                         <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
                         <a href="{{ route('users',['r'=> $role->name])}}" class="font-medium text-green-600 dark:text-green-500 hover:underline ms-3">View</a>
                     </td>
