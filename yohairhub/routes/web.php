@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\AccessControlPage;
+use App\Livewire\UserManagement;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +27,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/access_control', AccessControlPage::class)->name('access_control');
+    Route::get('/users', UserManagement::class)->name('users');
 });
