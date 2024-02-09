@@ -51,7 +51,7 @@
 
                     <td class="flex items-center px-6 py-4">
                         @livewire('edit-permission-modal', ['permission' => $permission], key('ep'.$permission->id))
-                        <a href="#" wire:click='delete( {{$permission->id}} )' class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                        <a href="#" wire:confirm.prompt="Are you sure you want to delete permission \n \n Type delete to confirm |delete" wire:click='delete( {{$permission->id}} )' class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
                         <a href="{{ route('users',['p'=> $permission->id])}}" class="font-medium text-green-600 dark:text-green-500 hover:underline ms-3">View</a>
                     </td>
                 </tr>

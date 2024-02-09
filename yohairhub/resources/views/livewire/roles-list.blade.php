@@ -50,7 +50,7 @@
 
                     <td class="flex items-center px-6 py-4">
                         @livewire('edit-role-modal', ['role' => $role], key('erm-'.$role->id))
-                        <a href="#" wire:click='delete( {{$role->id}} )' class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                        <a href="#" wire:confirm.prompt="Are you sure you want to delete the role, this may affect the system functionality \n \n type delete to confirm |delete" wire:click='delete( {{$role->id}} )' class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
                         <a href="{{ route('users',['r'=> $role->name])}}" class="font-medium text-green-600 dark:text-green-500 hover:underline ms-3">View</a>
                     </td>
                 </tr>
