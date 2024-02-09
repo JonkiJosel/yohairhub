@@ -39,13 +39,20 @@
             <div class="colorlib-table-cell js-fullheight">
               <div class="row no-gutters">
                 <div class="col-md-12 text-center">
-                  <h1 class="mb-4"><a href="index.html" class="logo">Look<br><span>Model Agency</span></a></h1>
+                  <h1 class="mb-4"><a href="{{route('welcome')}}" class="logo">{{config('app.name', 'YoHairHub')}}</a></h1>
                   <ul>
-                    <li class="active"><a href="index.html"><span><small>01</small>Home</span></a></li>
+                    <li class="active"><a href="{{route('welcome')}}"><span><small>01</small>Home</span></a></li>
                     <li><a href="about.html"><span><small>02</small>About</span></a></li>
                     <li><a href="model.html"><span><small>03</small>Models</span></a></li>
                     <li><a href="blog.html"><span><small>04</small>Blog</span></a></li>
                     <li><a href="contact.html"><span><small>05</small>Contact</span></a></li>
+                    @auth
+                        <li><a href="{{ route('dashboard') }}"><span><small>06</small>Dashboard</span></a></li>
+                    @else
+                        <li><a href="{{ route('login') }}"><span><small>06</small>Login</span></a></li>
+                        {{-- <li><a href="{{ route('login') }}"><span><small>06</small>Login</span></a></li> --}}
+                        <li><a href="{{ route('register') }}"><span><small>07</small>Register</span></a></li>
+                    @endauth
                   </ul>
                 </div>
               </div>
@@ -56,7 +63,7 @@
         <div id="colorlib-page">
           <header>
             <div class="colorlib-navbar-brand">
-              <a class="colorlib-logo" href="index.html">Look<br><span>Model Agency</span></a>
+              <a class="colorlib-logo" href="{{route('welcome')}}">{{ config('app.name', 'YoHairHub') }}</span></a>
             </div>
             <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
           </header>
@@ -912,8 +919,8 @@
                         <div class="block-23 mb-3">
                           <ul>
                             <li><span class="icon icon-map-marker"></span><span class="text">20 Kyambogo Rd, Banda, Kampala, Uganda</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+256 750 084912</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yohairhub.com</span></a></li>
+                            <li><a href="tel:+256 750 084912"><span class="icon icon-phone"></span><span class="text">+256 750 084912</span></a></li>
+                            <li><a href="mailto:info@yohairhub"><span class="icon icon-envelope"></span><span class="text">info@yohairhub.com</span></a></li>
                           </ul>
                         </div>
                     </div>
