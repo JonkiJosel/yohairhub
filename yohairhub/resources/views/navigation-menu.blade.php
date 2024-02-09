@@ -16,13 +16,17 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+                    @if(Auth::user()->hasRole('admin'))
                     <x-nav-link href="{{ route('access_control') }}" :active="request()->routeIs('access_control*')">
                         {{ __('Access Control') }}
                     </x-nav-link>
+                    @endif
 
+                    @role('admin')
                     <x-nav-link href="{{ route('users') }}" :active="request()->routeIs('users*')">
                         {{ __('Users') }}
                     </x-nav-link>
+                    @endrole
                 </div>
             </div>
 
