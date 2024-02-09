@@ -20,6 +20,15 @@
                             <option value="">No roles found</option>
                         @endforelse
                     </select>
+                    <select wire:model.live="filterPermission" class="p-2  rounded-md">
+                        <option value="">Permission</option>
+                        @forelse ($allPermissions as $permission)
+                            <option value="{{ $permission->name }}">{{ $permission->name }}</option>
+
+                        @empty
+                            <option value="">No permissions found</option>
+                        @endforelse
+
                 </span>
                </div>
             </div>

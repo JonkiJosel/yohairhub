@@ -13,4 +13,10 @@ class RolesList extends Component
             'roles' => Role::all()
         ]);
     }
+    public function delete($roleid)
+    {
+        $role = Role::find($roleid);
+        $role->delete();
+        $this->dispatch('RoleDeleted');
+    }
 }

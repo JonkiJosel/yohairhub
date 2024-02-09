@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Url;
@@ -14,17 +15,31 @@ class UsersList extends Component
     use WithPagination;
     #[Url('r')]
     public $filterRole = '';
+
+    #[Url('p')]
+    public $filterPermission = '';
     public $perPage = 10;
     public $search = '';
     public function render()
     {
         return view('livewire.users-list', [
-            'users' =>User::search($this->search)-> when($this->filterRole !== '', function ($query) {
+            'users' =>User::search($this->search)
+            ->when($this->filterRole !== '', function ($query) {
                 return $query->whereHas('roles', function ($query)  {
                     $query->where('name', $this->filterRole);
                 });
-            })->paginate($this->perPage),
+            })
+            // ->when($this->filterPermission !== '', function ($query) {
+            //     return $query->whereHas('permissions', function ($query)  {
+            //         $query->where('name', $this->filterPermission);
+            //     });
+            // })
+            ->when($this->filterPermission !== '', function ($query) {
+                return $query->permission($this->filterPermission);
+            })
+            ->paginate($this->perPage),
             'allRoles' => Role::select('name')->get(),
+            'allPermissions' => Permission::select('name')->get(),
         ]);
     }
     public function updatingSearch()

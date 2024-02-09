@@ -14,4 +14,10 @@ class PermissionsList extends Component
             'permissions' => Permission::all()
         ]);
     }
+    public function delete($permissionid)
+    {
+        $permission = Permission::find($permissionid);
+        $permission->delete();
+        $this->dispatch('PermissionDeleted');
+    }
 }
