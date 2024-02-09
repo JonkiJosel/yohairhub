@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $user = \App\Models\User::factory()->create([
             'name' => 'Nkinzi',
             'email' => 'jonki@yohairhub.com',
-            'password' => Hash::make('password'), // Use Hash facade to hash the password
+            'password' => Hash::make('password'), 
         ]);
 
         // create admin role
@@ -51,5 +51,8 @@ class DatabaseSeeder extends Seeder
         // assign admin role to the user
         $user->assignRole('admin');
 
+
+        // call UserSeeder
+        $this->call(UserSeeder::class);
     }
 }
