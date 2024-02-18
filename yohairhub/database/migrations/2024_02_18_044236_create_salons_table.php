@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('salons', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug')->nullable()->default(null);
+            $table->string('image')->nullable()->default(null);
+            $table->text('description')->nullable()->default(null);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
