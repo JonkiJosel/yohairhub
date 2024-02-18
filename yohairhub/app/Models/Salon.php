@@ -20,5 +20,12 @@ class Salon extends Model
         'image',
         'description',
     ];
-    
+
+    /**
+     * The users that belong to the salon.
+     */
+    public function hairdressers()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
