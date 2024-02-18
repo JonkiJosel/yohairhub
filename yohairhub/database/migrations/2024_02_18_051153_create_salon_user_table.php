@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->boolean('is_owner')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

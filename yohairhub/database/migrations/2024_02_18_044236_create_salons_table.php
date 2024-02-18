@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('salons', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug')->nullable()->default(null);
-            $table->string('image')->nullable()->default(null);
-            $table->text('description')->nullable()->default(null);
+            $table->string('address');
+            $table->string('city');
+            $table->string('phone')->nullable();
+            $table->string('image')->nullable();
+            $table->text('description')->nullable();
+            $table->enum('gender_accepted', ['Male', 'Female', 'Unisex'])->default('Unisex');
             $table->timestamps();
             $table->softDeletes();
         });

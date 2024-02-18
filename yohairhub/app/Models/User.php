@@ -66,4 +66,9 @@ class User extends Authenticatable
         return $query->where('name', 'like', '%' . $val . '%')
             ->orWhere('email', 'like', '%' . $val . '%');
     }
+
+    public function salons()
+    {
+        return $this->belongsToMany(Salon::class)->withPivot('is_owner');
+    }
 }

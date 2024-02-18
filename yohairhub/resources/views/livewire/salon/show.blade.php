@@ -24,11 +24,13 @@
 
             
             <div class="flex items-center space-x-4">
-                <x-button>New Salon</x-button>
+                @livewire('salon.new-salon-modal', key(uniqid()))
             </div>
             
         </div>
     </x-slot>
     A good traveler has no fixed plans and is not intent upon arriving.
-    
+    @if (Auth::user()->salons->count() > 0)
+        {{Auth::user()->salons}}
+    @endif
 </div>

@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Salon extends Model
 {
-    use HasFactory;
+    use HasFactory,  SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -16,9 +17,12 @@ class Salon extends Model
      */
     protected $fillable = [
         'name',
-        'slug',
+        'address',
+        'city',
         'image',
+        'phone',
         'description',
+        'gender_accepted',
     ];
 
     /**
@@ -28,4 +32,16 @@ class Salon extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    /**
+     * Get the readable representation of whether the salon is unisex.
+     *
+     * @return string
+     */
+    public function getIsUnisexAttribute()
+    {
+        return $this->is_unisex ? 'Yes' : 'No';
+    }
+
+    
 }
