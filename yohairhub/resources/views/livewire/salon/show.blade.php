@@ -29,8 +29,7 @@
             
         </div>
     </x-slot>
-    A good traveler has no fixed plans and is not intent upon arriving.
-    @if (Auth::user()->salons->count() > 0)
-        {{Auth::user()->salons}}
-    @endif
+    {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
+    
+    @livewire('salon.my-salons')
 </div>

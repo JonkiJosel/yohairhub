@@ -33,15 +33,6 @@ class Salon extends Model
         return $this->belongsToMany(User::class);
     }
 
-    /**
-     * Get the readable representation of whether the salon is unisex.
-     *
-     * @return string
-     */
-    public function getIsUnisexAttribute()
-    {
-        return $this->is_unisex ? 'Yes' : 'No';
-    }
 
     
 }
