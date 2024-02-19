@@ -28,11 +28,19 @@ class Salon extends Model
     /**
      * The users that belong to the salon.
      */
-    public function hairdressers()
+    // public function hairdressers()
+    // {
+    //     return $this->belongsToMany(User::class);
+    // }
+
+    public function owner()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class, 'owner_id');
     }
 
-
+    public function hairdressers()
+    {
+        return $this->belongsToMany(User::class, 'salon_user')->withPivot('is_owner')->withTimestamps();
+    }
     
 }
