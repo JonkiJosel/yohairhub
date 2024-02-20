@@ -35,7 +35,7 @@ class InviteHairdresser extends Component
             $salon->hairdressers()->attach($user->id);
             
             $this->reset('email');
-            $this->emit('hairdresserInvited');
+            $this->dispatch('hairdresserInvited');
         } else {
             session()->flash('error', 'User with the provided email does not exist.');
         }

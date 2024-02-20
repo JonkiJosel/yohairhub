@@ -18,7 +18,7 @@
         </x-slot>
     
         <x-slot name="actions">
-            <x-action-message on="success">
+            <x-action-message on="hairdresserInvited">
                 {{ __('Hairdresser invited successfully.') }}
             </x-action-message>
     
