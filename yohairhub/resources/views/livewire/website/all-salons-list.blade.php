@@ -1,4 +1,4 @@
-<section class="ftco-section" wire:poll.10s>
+<section class="ftco-section">
     <div class="container">
         <div class="row d-flex">
             <div class="col-md-3 mb-5 heading-section ftco-animate">

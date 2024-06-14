@@ -1,7 +1,8 @@
 <div>
     {{-- Stop trying to control. --}}
+    @include('livewire.partials.single-salon-header')
 
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <div class="flex items-center justify-between">
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -45,16 +46,22 @@
 
 
             <div class="flex items-center space-x-4">
-                <a href="{{ route('salon.show.single.profile', $salon) }}" class="text-gray-700 hover:text-blue-500 font-medium transition duration-300 border-b-2 border-transparent hover:border-blue-500">
+                <a href="{{ route('salon.show.single.profile', $salon) }}"
+                    class="text-gray-700 hover:text-blue-500 font-medium transition duration-300 border-b-2 border-transparent hover:border-blue-500">
                     Profile
                 </a>
-                <a href="{{ route('salon.show.single', $salon) }}" class="text-gray-700 hover:text-blue-500 font-medium transition duration-300 border-b-2 border-transparent hover:border-blue-500">
+                <a href="{{ route('salon.show.single', $salon) }}"
+                    class="text-gray-700 hover:text-blue-500 font-medium transition duration-300 border-b-2 border-transparent hover:border-blue-500">
                     Edit
                 </a>
+                <a href="{{ route('salon.show.single.hairstyle_manager', $salon) }}"
+                    class="text-gray-700 hover:text-blue-500 font-medium transition duration-300 border-b-2 border-transparent hover:border-blue-500">
+                    Hairstyles
+                </a>
             </div>
-           
+
         </div>
-    </x-slot>
+    </x-slot> --}}
 
 
     <div class="grid lg:grid-cols-1 gap-4 md:grid-cols-1 px-20 py-10">

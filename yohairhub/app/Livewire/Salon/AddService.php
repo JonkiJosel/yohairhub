@@ -38,7 +38,7 @@ class AddService extends Component
 
         $this->dispatch('serviceAdded'); 
 
-        $this->reset(); 
+        $this->reset(['name','description','price']); 
     }
     public function render()
     {

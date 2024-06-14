@@ -6,8 +6,9 @@ use App\Livewire\AccessControlPage;
 use App\Livewire\UserManagement;
 
 use App\Livewire\Bookings\Show as ShowBookings;
-use App\Livewire\salon\Show as ShowSalon;
-use App\Livewire\salon\MySingleSalon as ShowSalonSingle;
+use App\Livewire\Salon\ManageHairstyles;
+use App\Livewire\Salon\Show as ShowSalon;
+use App\Livewire\Salon\MySingleSalon as ShowSalonSingle;
 use App\Livewire\Salon\ViewSingleProfile;
 
 /*
@@ -45,4 +46,5 @@ Route::middleware([
     Route::get('/bookings', ShowBookings::class)->name('bookings.show');
     Route::get('/salon/{salon}', ShowSalonSingle::class)->name('salon.show.single');
     Route::get('/salon/{salon}/profile', ViewSingleProfile::class)->name('salon.show.single.profile');
+    Route::get('/salon/{salon}/hairstyle-manager', ManageHairstyles::class)->name('salon.show.single.hairstyle_manager');
 });
