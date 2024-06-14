@@ -5,6 +5,7 @@ namespace App\Livewire\Salon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Salon;
+use App\Models\SalonUser;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Validate;
@@ -22,7 +23,7 @@ class NewSalonForm extends Component
     #[Validate('nullable|sometimes|image|mimes:jpeg,png,jpg,gif|max:2048', as: 'salon image')]
     public $salon_image = null;
     #[Validate('nullable|sometimes|min:3|max:50', as: 'description')]
-    public $salon_description = ''; 
+    public $salon_description = '';
     #[Validate('required|min:3|max:50', as: 'accepted gender')]
     public $gender_accepted = '';
 
@@ -52,8 +53,12 @@ class NewSalonForm extends Component
 
         $salon->save();
 
-        $salon->hairdressers()->attach(auth()->user()->id, ['is_owner' => true]);
-
+        // $salon->hairdressers()->create(['is_owner' => true, 'user_id' => auth()->user()->id]);
+        SalonUser::create([
+            'is_owner' => true, 
+            'user_id' => auth()->user()->id,
+            'salon_id' => $salon->id,
+        ]);
 
         $this->dispatch('salonCreated');
 

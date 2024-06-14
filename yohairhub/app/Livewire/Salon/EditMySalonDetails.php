@@ -66,9 +66,9 @@ class EditMySalonDetails extends Component
 
         $this->dispatch('salonUpdated'); // Dispatch event after updating
 
-        session()->flash('message', 'Salon updated successfully.');
+        noty()->addSuccess('Salon updated successfully.');
 
-        return redirect()->route('salon.show', $this->salon->id);
+        // return redirect()->route('salon.show', $this->salon->id);
     }
 
 

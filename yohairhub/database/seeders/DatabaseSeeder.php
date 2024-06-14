@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $user = \App\Models\User::factory()->create([
             'name' => 'Nkinzi',
             'email' => 'jonki@yohairhub.com',
-            'password' => Hash::make('password'), 
+            'password' => Hash::make('kali'), 
         ]);
 
         // create admin role

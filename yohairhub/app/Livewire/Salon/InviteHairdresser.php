@@ -5,17 +5,18 @@ namespace App\Livewire\Salon;
 use Livewire\Component;
 
 use App\Models\Salon;
+use App\Models\SalonUser;
 use App\Models\User;
 
 
 class InviteHairdresser extends Component
 {
     public $email;
-    public $salonId;
+    public $salon;
 
     public function mount($salonId)
     {
-        $this->salonId = $salonId;
+        $this->salon = $salonId;
     }
     public function render()
     {
@@ -31,14 +32,17 @@ class InviteHairdresser extends Component
         $user = User::where('email', $validatedData['email'])->first();
 
         if ($user) {
-            $salon = Salon::find($this->salonId);
-            $salon->hairdressers()->attach($user->id);
-            
+            $salon = Salon::find($this->salon->id);
+            // $salon->hairdressers()->attach($user->id);
+            SalonUser::create([
+                'salon_id' => $salon->id,
+                'user_id' => $user->id,
+            ]);
+
             $this->reset('email');
             $this->dispatch('hairdresserInvited');
         } else {
-            session()->flash('error', 'User with the provided email does not exist.');
+            noty()->addError('User with the provided email does not exist.');
         }
     }
-
 }

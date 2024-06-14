@@ -1,6 +1,6 @@
 <div>
     {{-- Do your work, then step back. --}}
-    <x-form-section submit="createSalon">
+    <x-form-section submit="">
         <x-slot name="title">
             {{ __('Salon Details') }}
         </x-slot>
@@ -76,10 +76,10 @@
 
 
         <x-slot name="actions">
-            <x-action-message on="salonCreated" class="mr-3" >Salon Created Successfully! </x-action-message>
+            <x-action-message on="salonUpdated" class="mr-3" >Saved Successfully! </x-action-message>
 
-            <x-button wire:click="createSalon" wire:loading.attr="disabled">
-                {{ __('Create') }}
+            <x-button wire:click="updateSalon" wire:loading.attr="disabled">
+                {{ __('Save') }}
             </x-button>
         </x-slot>
     </x-form-section>

@@ -4,6 +4,7 @@ namespace App\Livewire\Salon;
 
 use Livewire\Component;
 use App\Models\Salon;
+use App\Models\SalonService;
 
 class AddService extends Component
 {
@@ -14,9 +15,10 @@ class AddService extends Component
     public $price;
 
     // Mount method to accept the salon when initializing the component
-    public function mount(Salon $salon)
+    public function mount($salonId)
     {
-        $this->salon = $salon;
+        $this->salon = Salon::findOrFail($salonId->id);
+        // dd($this->salon);
     }
 
     public function addService()
@@ -27,7 +29,12 @@ class AddService extends Component
             'price' => 'required|numeric|min:0',
         ]);
 
-        $this->salon->services()->create($validatedData);
+        SalonService::create([
+            'name' => $this->name, 
+            'description' => $this->description, 
+            'price' => $this->price, 
+            'salon_id' => $this->salon->id, 
+        ]);
 
         $this->dispatch('serviceAdded'); 
 

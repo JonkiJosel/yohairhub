@@ -35,12 +35,16 @@ class Salon extends Model
 
     public function owner()
     {
-        return $this->belongsTo(User::class, 'owner_id');
+        return $this->hasOne(SalonUser::class)->where('is_owner', true)->with('user');
     }
 
     public function hairdressers()
     {
-        return $this->belongsToMany(User::class, 'salon_user')->withPivot('is_owner')->withTimestamps();
+        return $this->hasMany(SalonUser::class)->withTrashed();
+    }
+
+    public function services(){
+        return $this->hasMany(SalonService::class);
     }
     
 }

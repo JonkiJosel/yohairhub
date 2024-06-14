@@ -1,4 +1,4 @@
-<div>
+<div wire:poll>
     {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
     @if (auth()->user()->salons->count() > 1)
         <div class="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 justify-stretch p-5 w-full">

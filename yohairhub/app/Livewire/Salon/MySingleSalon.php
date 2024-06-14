@@ -17,4 +17,9 @@ class MySingleSalon extends Component
     {
         return view('livewire.salon.my-single-salon');
     }
+
+    public function gotilkopage($path){
+        dd($path);
+        $this->redirect($path, true);
+    }
 }

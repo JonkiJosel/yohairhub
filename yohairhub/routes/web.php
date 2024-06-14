@@ -7,6 +7,8 @@ use App\Livewire\UserManagement;
 use App\Livewire\Bookings\Show as ShowBookings;
 use App\Livewire\salon\Show as ShowSalon;
 use App\Livewire\salon\MySingleSalon as ShowSalonSingle;
+use App\Livewire\Salon\ViewSingleProfile;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,4 +38,5 @@ Route::middleware([
     Route::get('/salon', ShowSalon::class)->name('salon.show');
     Route::get('/bookings', ShowBookings::class)->name('bookings.show');
     Route::get('/salon/{salon}', ShowSalonSingle::class)->name('salon.show.single');
+    Route::get('/salon/{salon}/profile', ViewSingleProfile::class)->name('salon.show.single.profile');
 });
