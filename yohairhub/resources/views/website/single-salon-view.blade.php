@@ -141,7 +141,7 @@
                                     <h3>Our service</h3>
                                     @forelse ($salon->services as $service)
                                         <li><a href="#">{{ $service->name }}
-                                                <span>(UGX {{ $service->price }})</span></a></li>
+                                                <span>(UGX {{ number_format($service->price, 2) }})</span></a></li>
                                     @empty
                                         <li><a href="#">No services to show <span>(12)</span></a></li>
                                     @endforelse

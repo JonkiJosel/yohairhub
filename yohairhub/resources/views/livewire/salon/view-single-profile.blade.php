@@ -1,7 +1,7 @@
 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md transition duration-300">
 
     @include('livewire.partials.single-salon-header')
-    
+
     <!-- Salon Profile -->
     <div class="grid grid-cols-12 gap-6 mb-6 justify-center">
         <!-- Profile Information -->
@@ -27,12 +27,13 @@
                 <li id="service-{{ $service->id }}" class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow">
                     <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200">{{ $service->name }}</h4>
                     <p class="text-gray-600 dark:text-gray-400">{{ $service->description }}</p>
-                    <p class="text-gray-600 dark:text-gray-300 font-medium">${{ $service->price }}</p>
+                    <p class="text-gray-600 dark:text-gray-300 font-medium">UGX {{ number_format($service->price, 2) }}
+                    </p>
                     @if (auth()->check() && auth()->user()->id === $salon->owner->user->id)
                         <div class="mt-4 flex space-x-2">
                             <x-button wire:confirm="are you sure you want to delete this?"
                                 wire:click="deleteService({{ $service->id }})">Delete</x-button>
-                            @livewire('salon.edit-salon-service-modal', ['service' => $service], key('edit-ser-'.$service->id))
+                            @livewire('salon.edit-salon-service-modal', ['service' => $service], key('edit-ser-' . $service->id))
                         </div>
                     @endif
 
