@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
 <head>
     @include('website.partials.head')
@@ -11,7 +11,27 @@
         @include('website.partials.navbar')
 
         <div id="colorlib-page">
-            @include('website.home')
+            @include('website.partials.header')
+
+            <section class="hero-wrap" style="background-image: url({{ asset('/looks/images/bg_2.jpg') }});"
+                data-stellar-background-ratio="0.5">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row no-gutters text align-items-end justify-content-center" data-scrollax-parent="true">
+                        <div class="col-md-8 ftco-animate text-center">
+                            <p class="breadcrumbs"><span class="mr-2"><a href="{{route('welcome')}}">Home</a></span>
+                                <span>Salons</span>
+                            </p>
+                            <h1 class="mb-5 bread">Salons</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END slider -->
+
+            @livewire('website.all-salons-list')
+
+            @include('website.partials.call-for-reg')
 
             @include('website.partials.footer')
 
@@ -69,7 +89,9 @@
         </div>
     </div>
 
-@include('website.partials.scripts')
+
+    @include('website.partials.scripts')
+
 </body>
 
 </html>

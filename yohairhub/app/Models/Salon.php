@@ -23,6 +23,9 @@ class Salon extends Model
         'phone',
         'description',
         'gender_accepted',
+        'uuid',
+        'rating',
+        'is_featured',
     ];
 
     /**
@@ -43,8 +46,8 @@ class Salon extends Model
         return $this->hasMany(SalonUser::class)->withTrashed();
     }
 
-    public function services(){
+    public function services()
+    {
         return $this->hasMany(SalonService::class);
     }
-    
 }
