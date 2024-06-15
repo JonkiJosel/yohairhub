@@ -5,16 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GalleryImage extends Model
+class SalonComment extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'salon_hair_style_id',
-        'image_path',
+        'name',
+        'email',
+        'comment',
+        'salon_id',
     ];
-    public function salonHairStyle()
-    {
-        return $this->belongsTo(SalonHairStyle::class);
+
+    public function salon(){
+        return $this->belongsTo(Salon::class);
     }
 }

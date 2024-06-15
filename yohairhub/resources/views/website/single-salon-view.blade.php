@@ -37,97 +37,136 @@
                     <div class="row">
                         <div class="col-md-8 ftco-animate">
                             <h2 class="mb-3">#1. {{ $salon->name }}</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia
-                                suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio
-                                laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima
-                                nisi et. Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio
-                                deserunt molestiae voluptates soluta architecto tempora.</p>
+                            <p>{{ $salon->description }}</p>
                             <p>
                                 <img src="{{ $salon->image ? asset('storage/' . $salon->image) : 'looks/images/image_6.jpg' }}"
                                     alt="" class="img-fluid">
                             </p>
-                            <p>Molestiae cupiditate inventore animi, maxime sapiente optio, illo est nemo veritatis
-                                repellat sunt doloribus nesciunt! Minima laborum magni reiciendis qui voluptate quisquam
-                                voluptatem soluta illo eum ullam incidunt rem assumenda eveniet eaque sequi deleniti
-                                tenetur dolore amet fugit perspiciatis ipsa, odit. Nesciunt dolor minima esse vero ut
-                                ea, repudiandae suscipit!</p>
-                            <h2 class="mb-3 mt-5">#2. Our Gallery</h2>
-                            <p>Gallery here</p>
-                            <div class="tag-widget post-tag-container mb-5 mt-5">
-                                <div class="tagcloud">
-                                    <a href="#" class="tag-cloud-link">Life</a>
-                                    <a href="#" class="tag-cloud-link">Sport</a>
-                                    <a href="#" class="tag-cloud-link">Tech</a>
-                                    <a href="#" class="tag-cloud-link">Travel</a>
+
+                            <div class="profile-info row mt-4">
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <h5 class="fw-bold">Address</h5>
+                                        <p>{{ $salon->address }}</p>
+
+                                    </div>
+                                    <div class="info-item">
+                                        <h5 class="fw-bold">Phone</h5>
+                                        <p>{{ $salon->phone }}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <h5 class="fw-bold">City</h5>
+                                        {{-- <p>{{ $salon->description }}</p> --}}
+                                        <p class="text-muted">{{ $salon->city }}</p>
+
+                                    </div>
+                                    <div class="info-item">
+                                        <h5 class="fw-bold">Gender Accepted</h5>
+                                        <p>{{ ucfirst($salon->gender_accepted) }}</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="about-author d-flex p-5 bg-light">
-                                <div class="bio align-self-md-center mr-5">
-                                    <img src="images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
-                                </div>
-                                <div class="desc align-self-md-center">
-                                    <h3>Josel Nkinzi</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem
-                                        necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa
-                                        sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+                            @livewire('website.single-salon-gallery', ['salon' => $salon])
+
+                            <div class="tag-widget post-tag-container mb-5 mt-5">
+                                <div class="tagcloud">
+                                    @forelse ($salon->hairStyles as $hairstyle)
+                                        <a href="#" class="tag-cloud-link">{{ $hairstyle->hairStyle->name }}</a>
+
+                                    @empty
+                                        <a href="#" class="tag-cloud-link">Life</a>
+                                    @endforelse
                                 </div>
                             </div>
+
+                            {{-- <div class="about-author d-flex p-5 bg-light">
+                                <div class="bio align-self-md-center mr-5">
+                                    <img src="{{ $salon->owner->user->profile_photo_url }}" alt="Owner's Profile Picture" class="img-fluid mb-4">
+                                </div>
+                                <div class="desc align-self-md-center">
+                                    <h3>{{ $salon->owner->user->name }}</h3>
+                                    <p>
+                                        "Welcome to {{ $salon->name }}, your ultimate destination for beauty and style
+                                        in {{ $salon->city }}! As the owner, I'm delighted to invite you to experience
+                                        our warm and welcoming atmosphere. Our talented team is dedicated to making you
+                                        look and feel your best, whether you’re here for a stunning new haircut, vibrant
+                                        color, or a relaxing spa treatment. We take pride in delivering personalized
+                                        service and top-notch care to each of our clients. Come join us at
+                                        {{ $salon->name }}, where your beauty and satisfaction are our top priorities.
+                                        We look forward to meeting you and helping you shine!"
+                                    </p>
+                                </div>
+                            </div> --}}
+                            <div
+                                class="about-author bg-light p-5 rounded-lg shadow-md flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0">
+                                {{-- <div class="bio md:mr-5">
+                                    <img src="{{ $salon->owner->user->profile_photo_url }}" alt="Owner's Profile Picture" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mb-4 md:mb-0">
+                                </div> --}}
+                                <div class="desc text-center md:text-left">
+                                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800">
+                                        {{ $salon->owner->user->name }}</h3>
+                                    <p class="text-gray-600">
+                                        "Welcome to {{ $salon->name }}, your go-to destination for beauty and style in
+                                        {{ $salon->city }}! As the owner, I'm thrilled to invite you to immerse
+                                        yourself in our warm and welcoming atmosphere. Our talented team is dedicated to
+                                        enhancing your natural beauty, whether you’re seeking a stunning new haircut,
+                                        vibrant color, or a soothing spa treatment. We take pride in providing
+                                        personalized service and exceptional care to each of our clients. Visit us at
+                                        {{ $salon->name }} and let us prioritize your beauty and satisfaction. We look
+                                        forward to meeting you and helping you shine!"
+                                    </p>
+                                </div>
+                            </div>
+
 
 
                             <div class="pt-5 mt-5">
-                                <h3 class="mb-5">6 Comments</h3>
+                                <h3 class="mb-5">{{ $salon->comments->count() }} Comments</h3>
                                 <ul class="comment-list">
-                                    <li class="comment">
-                                        <div class="vcard bio">
-                                            <img src="{{ asset('looks/images/person_1.jpg') }}" alt="Image placeholder">
-                                        </div>
-                                        <div class="comment-body">
-                                            <h3>John Doe</h3>
-                                            <div class="meta">June 27, 2018 at 2:21pm</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem
-                                                laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat
-                                                saepe enim sapiente iste iure! Quam voluptas earum impedit
-                                                necessitatibus, nihil?</p>
-                                            {{-- <p><a href="#" class="reply">Reply</a></p> --}}
-                                        </div>
-                                    </li>
+
+
+                                    @forelse ($salon->comments as $comment)
+                                        <li class="comment">
+                                            <div class="vcard bio">
+                                                <img src="{{ asset('looks/images/person_1.jpg') }}" alt="Image placeholder">
+                                            </div>
+                                            <div class="comment-body">
+                                                <h3>{{ $comment->name }}</h3>
+                                                <div class="meta">
+                                                    {{ $comment->created_at->format('F d, Y \a\t h:ia') }}</div>
+                                                <p>{{ $comment->comment }}</p>
+                                                {{-- <p><a href="#" class="reply">Reply</a></p> --}}
+                                            </div>
+                                        </li>
+                                    @empty
+                                        <li class="comment">
+                                            <div class="vcard bio">
+                                                <img src="{{ asset('looks/images/person_1.jpg') }}" alt="Image placeholder">
+                                            </div>
+                                            <div class="comment-body">
+                                                <h3>Josel Nkinzi</h3>
+                                                <div class="meta">May 18, 2024 at 10:30am</div>
+                                                <p>Thank you for providing such exceptional service! I loved my haircut
+                                                    and the overall experience
+                                                    at {{ $salon->name }}. The staff was friendly and professional.
+                                                    Can't wait to come back!</p>
+                                                {{-- <p><a href="#" class="reply">Reply</a></p> --}}
+                                            </div>
+                                        </li>
+                                    @endforelse
 
                                 </ul>
                                 <!-- END comment-list -->
 
-                                <div class="comment-form-wrap pt-5">
-                                    <h3 class="mb-5">Leave a comment</h3>
-                                    <form action="#" class="p-5 bg-light">
-                                        <div class="form-group">
-                                            <label for="name">Name *</label>
-                                            <input type="text" class="form-control" id="name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Email *</label>
-                                            <input type="email" class="form-control" id="email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="website">Website</label>
-                                            <input type="url" class="form-control" id="website">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="message">Message</label>
-                                            <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="submit" value="Post Comment"
-                                                class="btn py-3 px-4 btn-primary">
-                                        </div>
-
-                                    </form>
-                                </div>
+                                @include('livewire.website.new-comment-form')
                             </div>
 
                         </div> <!-- .col-md-8 -->
                         <div class="col-md-4 sidebar ftco-animate">
-                            <div class="sidebar-box">
+                            {{-- <div class="sidebar-box">
                                 <form action="#" class="search-form">
                                     <div class="form-group">
                                         <span class="icon fa fa-search"></span>
@@ -135,7 +174,7 @@
                                             placeholder="Type a keyword and hit enter">
                                     </div>
                                 </form>
-                            </div>
+                            </div> --}}
                             <div class="sidebar-box ftco-animate">
                                 <div class="categories">
                                     <h3>Our service</h3>
@@ -149,28 +188,32 @@
                                 </div>
                             </div>
 
-                            @livewire('website.featured-salons-aside')
 
                             <div class="sidebar-box ftco-animate">
                                 <h3>Hair Styles</h3>
                                 <div class="tagcloud">
-                                    <a href="#" class="tag-cloud-link">dish</a>
-                                    <a href="#" class="tag-cloud-link">menu</a>
-                                    <a href="#" class="tag-cloud-link">food</a>
-                                    <a href="#" class="tag-cloud-link">sweet</a>
-                                    <a href="#" class="tag-cloud-link">tasty</a>
-                                    <a href="#" class="tag-cloud-link">delicious</a>
-                                    <a href="#" class="tag-cloud-link">desserts</a>
-                                    <a href="#" class="tag-cloud-link">drinks</a>
+                                    @forelse ($salon->hairStyles as $hairstyle)
+                                        <a href="#" class="tag-cloud-link">{{ $hairstyle->hairStyle->name }}</a>
+                                    @empty
+                                        <a href="#" class="tag-cloud-link">Life</a>
+                                    @endforelse
                                 </div>
                             </div>
 
                             <div class="sidebar-box ftco-animate">
                                 <h3>{{ config('app.name', 'YoHairHub') }}</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem
-                                    necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa
-                                    sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+                                <p>Welcome to {{ config('app.name', 'YoHairhub') }} powered by cutting-edge technology
+                                    designed to redefine your beauty experience. This system seamlessly connects you
+                                    with top-tier salons across the city, offering a diverse range of services tailored
+                                    to your unique style preferences. Whether you're looking for a trendy haircut, a
+                                    vibrant new color, or a relaxing spa day, our platform ensures you receive
+                                    personalized care and exceptional service at every visit. Join us and discover how
+                                    we prioritize your beauty and satisfaction, making every salon visit an opportunity
+                                    to shine.</p>
                             </div>
+
+                            @livewire('website.featured-salons-aside')
+
                         </div>
 
                     </div>

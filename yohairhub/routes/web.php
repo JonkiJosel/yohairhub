@@ -28,6 +28,7 @@ use App\Livewire\Salon\ViewSingleProfile;
 
     Route::get('/salons', [WebsiteController::class, 'salons'])->name('website.salons');
     Route::get('/salons/{uuid}', [WebsiteController::class, 'viewSalon'])->name('website.salon.view');
+    Route::post('/salons/{uuid}/commets', [WebsiteController::class, 'postComment'])->name('website.salon.newComment');
     Route::get('/contact-us', [WebsiteController::class, 'contactUs'])->name('website.contact-us');
     Route::get('/about-us', [WebsiteController::class, 'aboutUs'])->name('website.about-us');
 

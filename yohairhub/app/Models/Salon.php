@@ -50,4 +50,19 @@ class Salon extends Model
     {
         return $this->hasMany(SalonService::class);
     }
+
+    public function hairStyles()
+    {
+        return $this->hasMany(SalonHairStyle::class);
+    }
+
+    public function galleryImages()
+    {
+        return $this->hasManyThrough(GalleryImage::class, SalonHairStyle::class, 'salon_id', 'salon_hair_style_id', 'id', 'id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(SalonComment::class);
+    }
 }

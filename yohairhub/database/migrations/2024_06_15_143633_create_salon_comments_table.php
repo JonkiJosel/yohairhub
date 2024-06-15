@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gallery_images', function (Blueprint $table) {
+        Schema::create('salon_comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('salon_hair_style_id');
-            $table->string('image_path');
+            $table->string('name');
+            $table->string('email');
+            $table->text('comment');
+            $table->foreignId('salon_id');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gallery_images');
+        Schema::dropIfExists('salon_comments');
     }
 };

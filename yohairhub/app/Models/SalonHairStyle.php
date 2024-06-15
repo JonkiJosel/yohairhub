@@ -10,5 +10,14 @@ class SalonHairStyle extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['salon_id', 'hairstyle_id', 'custom_price'];
+    protected $fillable = [
+        'salon_id',
+        'hair_style_id',
+        'custom_price'
+    ];
+
+    public function hairStyle()
+    {
+        return $this->belongsTo(HairStyle::class);
+    }
 }

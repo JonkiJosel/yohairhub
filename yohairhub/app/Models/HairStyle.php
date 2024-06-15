@@ -10,7 +10,11 @@ class HairStyle extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name', 'description', 'model_image_path'];
+    protected $fillable = [
+        'name', 
+        'description', // slug of name
+        'model_image_path' // image to show on top
+    ];
 
     // Define the relationship with Salons through the pivot table
     public function salons()

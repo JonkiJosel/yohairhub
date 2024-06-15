@@ -1,7 +1,10 @@
-<div>
-    {{-- Stop trying to control. --}}
-    <x-form-section submit="">
-        <x-slot name="title">New Hair Style</x-slot>
+<div class="">
+    <x-form-section submit="saveHairStyle">
+        <!-- Title and Description Slots -->
+        <x-slot name="title">
+            New Hair Style
+        </x-slot>
+
         <x-slot name="description">
             Add a new hairstyle to the system. <br>
             This will be available to all salons, but specific details can be attached to your salon only.
@@ -9,32 +12,52 @@
 
         <!-- Form Fields -->
         <x-slot name="form">
-            <div class="col-span-12 grid grid-cols-12 gap-4">
-            <div class="col-span-6">
-                <x-label for="name" value="Hairstyle Name" />
-                <x-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="name" />
-                <x-input-error for="name" class="mt-2" />
-            </div>
+            <div class="col-span-6 grid grid-cols-12 gap-6">
 
-            {{-- <div class="col-span-6 sm:col-span-4 mt-4">
-                <x-label for="description" value="Description" />
-                <textarea id="description" rows="4" class="mt-1 block w-full" wire:model.defer="description"></textarea>
-                <x-input-error for="description" class="mt-2" />
-            </div> --}}
+                <!-- Hairstyle Name Field -->
+                <div wire:ignore class="col-span-6">
+                    <x-label for="name" value="Hairstyle Name" />
+                    <select id="select_name"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                        wire:model.defer="name">
+                        <option value="">Select or type to add new</option>
+                        @foreach ($hairStyles as $hairstyle)
+                            <option value="{{ $hairstyle->name }}">{{ $hairstyle->name }}</option>
+                        @endforeach
+                    </select>
+                    <x-input-error for="name" class="mt-2 text-red-500 text-sm" />
+                </div>
 
-            <div class="col-span-6">
-                <x-label for="price" value="Base Price (UGX)" />
-                <x-input id="price" type="number" step="0.01" class="mt-1 block w-full"
-                    wire:model.defer="price" />
-                <x-input-error for="price" class="mt-2" />
-            </div>
+                <!-- Base Price Field -->
+                <div class="col-span-6">
+                    <x-label for="price" value="Base Price (UGX)" />
+                    <x-input id="price" type="number" step="0.01"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                        wire:model.defer="price" />
+                    <x-input-error for="price" class="mt-2 text-red-500 text-sm" />
+                </div>
+
             </div>
         </x-slot>
 
         <!-- Action Buttons -->
         <x-slot name="actions">
-            <x-button wire:click="saveHairStyle">Save</x-button>
-            <x-secondary-button class="ms-2">Cancel</x-secondary-button>
+            <x-secondary-button class="bg-gray-300 text-gray-700 hover:bg-gray-400"
+                wire:click="$emit('closeModal')">Cancel</x-secondary-button>
+            <x-button class="ml-2 bg-indigo-600 text-white hover:bg-indigo-700" type="submit">Save</x-button>
         </x-slot>
     </x-form-section>
+
+
+    @script
+        <script>
+            $('#select_name').select2({
+                tags: true,
+            })
+            $('#select_name').on('change', function(event) {
+                let selectedValue = $(this).val();
+                $wire.set('name', selectedValue);
+            });
+        </script>
+    @endscript
 </div>
