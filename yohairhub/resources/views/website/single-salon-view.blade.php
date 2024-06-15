@@ -131,7 +131,8 @@
                                     @forelse ($salon->comments as $comment)
                                         <li class="comment">
                                             <div class="vcard bio">
-                                                <img src="{{ asset('looks/images/person_1.jpg') }}" alt="Image placeholder">
+                                                <img src="{{ asset('looks/images/person_1.jpg') }}"
+                                                    alt="Image placeholder">
                                             </div>
                                             <div class="comment-body">
                                                 <h3>{{ $comment->name }}</h3>
@@ -144,15 +145,15 @@
                                     @empty
                                         <li class="comment">
                                             <div class="vcard bio">
-                                                <img src="{{ asset('looks/images/person_1.jpg') }}" alt="Image placeholder">
+                                                <img src="{{ asset('looks/images/person_1.jpg') }}"
+                                                    alt="Image placeholder">
                                             </div>
                                             <div class="comment-body">
                                                 <h3>Josel Nkinzi</h3>
                                                 <div class="meta">May 18, 2024 at 10:30am</div>
-                                                <p>Thank you for providing such exceptional service! I loved my haircut
-                                                    and the overall experience
-                                                    at {{ $salon->name }}. The staff was friendly and professional.
-                                                    Can't wait to come back!</p>
+                                                <p>Be the first to leave a comment and share your experience at
+                                                    {{ $salon->name }}!</p>
+
                                                 {{-- <p><a href="#" class="reply">Reply</a></p> --}}
                                             </div>
                                         </li>
