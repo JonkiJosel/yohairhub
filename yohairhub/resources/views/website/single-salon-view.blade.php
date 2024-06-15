@@ -124,7 +124,7 @@
 
 
                             <div class="pt-5 mt-5">
-                                <h3 class="mb-5">{{ $salon->comments->count() }} Comments</h3>
+                                <h3 class="mb-5">{{ $salon->comments->count() ?? 1 }} Comments</h3>
                                 <ul class="comment-list">
 
 
