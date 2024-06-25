@@ -13,6 +13,8 @@ class GalleryImage extends Model
         'salon_hair_style_id',
         'image_path',
     ];
+
+    // Define the relationship with SalonHairStyle
     public function salonHairStyle()
     {
         return $this->belongsTo(SalonHairStyle::class);

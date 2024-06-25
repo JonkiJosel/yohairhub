@@ -54,6 +54,10 @@
                 class="text-gray-700 hover:text-blue-500 font-medium transition duration-300 border-b-2 border-transparent hover:border-blue-500">
                 Hairstyles
             </a>
+            <a href="{{ route('salon.show.single.hairstyle_manager', $salon) }}"
+                class="text-gray-700 hover:text-blue-500 font-medium transition duration-300 border-b-2 border-transparent hover:border-blue-500">
+                Hairstyles
+            </a>
         </div>
 
     </div>

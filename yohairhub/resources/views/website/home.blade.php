@@ -83,82 +83,13 @@
                 </div>
             </div> end of fisrt model --}}
 
+            @include('livewire.website.home-hairstyles')
 
-            @php
-                // Define the directory path
-                $directory = resource_path('images');
-
-                // Get the list of subdirectories
-                $subfolders = scandir($directory);
-
-                // Iterate through each item
-                foreach ($subfolders as $subfolder) {
-                    // Exclude current directory (.) and parent directory (..)
-                    if ($subfolder != '.' && $subfolder != '..') {
-                        // Display the subfolder name
-                        // echo '<li>' . $subfolder . '</li>';
-                        // $imageFile = resource_path('images/' . $subfolder . '/profile.jpg');
-                        $images = glob($directory . '/' . $subfolder . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-                        // $firstImage = reset($images);
-                        $i = random_int(0, count($images) - 1);
-                        $firstImage = $images[$i];
-                        if ($firstImage) {
-                            // Replace backslashes with forward slashes in the image path
-                            $imageUrl = str_replace(
-                                '\\',
-                                '/',
-                                asset(str_replace(resource_path(), 'resources', $firstImage)),
-                            );
-                            // replace the word 'resources' with 'public'
-                            $imageUrl = str_replace('resources', 'looks', $imageUrl);
-                            echo '
-                                        <div class="col-md-3 model-entry ftco-animate">
-                                            <div class="model-img" style="background-image: url(' .
-                                asset($imageUrl) .
-                                ');">
-                                                <div class="name" >
-                                                    <h3><a href="model-single.html">' .
-                                $subfolder .
-                                '</a></h3>
-                                                </div>
-                                                <div class="text">
-                                                    <h3><a href="model-single.html">' .
-                                $subfolder .
-                                '</a></h3>
-                                                    <div class="d-flex models-info">
-                                                        <div class="pr-md-3">
-                                                <p>Height</p>
-                                                <span>185</span>
-                                            </div>
-                                            <div class="pr-md-3">
-                                                <p>Bust</p>
-                                                <span>79</span>
-                                            </div>
-                                            <div class="pr-md-3">
-                                                <p>Waist</p>
-                                                <span>40</span>
-                                            </div>
-                                            <div class="pr-md-3">
-                                                <p>Hips</p>
-                                                <span>87</span>
-                                            </div>
-                                            <div class="pr-md-3">
-                                                <p>Shoe</p>
-                                                <span>40</span>
-                                            </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>';
-                        }
-                    }
-                }
-            @endphp
-
+            
 
             <div class="col-md-3 d-flex justify-content-center align-items-center bg-light ftco-animate">
                 <div class="btn-view">
-                    <p><a href="model.html">View more</a></p>
+                    <p><a href="{{ route('website.hairstyles') }}">View more</a></p>
                 </div>
             </div>
         </div>

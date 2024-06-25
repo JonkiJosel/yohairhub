@@ -22,11 +22,11 @@
                 <div class="ftco-footer-widget mb-4 ml-md-4">
                     <h2 class="ftco-heading-2">Site Links</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Home</a></li>
-                        <li><a href="#" class="py-2 d-block">About</a></li>
-                        <li><a href="#" class="py-2 d-block">Model</a></li>
-                        <li><a href="#" class="py-2 d-block">Services</a></li>
-                        <li><a href="#" class="py-2 d-block">Blog</a></li>
+                        <li><a href="{{ route('welcome') }}" class="py-2 d-block">Home</a></li>
+                        <li><a href="{{ route('website.about-us') }}" class="py-2 d-block">About</a></li>
+                        <li><a href="{{ route('website.hairstyles') }}" class="py-2 d-block">Hairstyles</a></li>
+                        <li><a href="{{ route('website.salons') }}" class="py-2 d-block">Salons</a></li>
+                        <li><a href="{{ route('website.contact-us') }}" class="py-2 d-block">Contact</a></li>
                     </ul>
                 </div>
             </div>

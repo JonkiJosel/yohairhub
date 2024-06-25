@@ -43,7 +43,12 @@ class Salon extends Model
 
     public function hairdressers()
     {
-        return $this->hasMany(SalonUser::class)->withTrashed();
+        return $this->hasMany(SalonUser::class);
+    }
+
+    public function activehairdressers()
+    {
+        return $this->hasMany(SalonUser::class);
     }
 
     public function services()

@@ -12,17 +12,21 @@
                                 href="{{ route('welcome') }}"><span><small>01</small>Home</span></a></li>
                         <li @class(['active' => Route::is('website.about-us')])><a
                                 href="{{ route('website.about-us') }}"><span><small>02</small>About</span></a></li>
-                        <li><a href="model.html"><span><small>03</small>Models</span></a></li>
+                        <li @class(['active' => Route::is('website.hairstyles')])><a
+                                href="{{ route('website.hairstyles') }}"><span><small>03</small>Hairstyles</span></a>
+                        </li>
                         <li @class(['active' => Route::is('website.salons')])><a
                                 href="{{ route('website.salons') }}"><span><small>04</small>Salons</span></a></li>
                         <li @class(['active' => Route::is('website.contact-us')])><a
                                 href="{{ route('website.contact-us') }}"><span><small>05</small>Contact</span></a></li>
                         @auth
-                            <li><a href="{{ route('dashboard') }}"><span><small>06</small>Dashboard</span></a></li>
+                            <li @class(['active' => Route::is('dashboard')])><a
+                                    href="{{ route('dashboard') }}"><span><small>06</small>Dashboard</span></a></li>
                         @else
-                            <li><a href="{{ route('login') }}"><span><small>06</small>Login</span></a></li>
-                            {{-- <li><a href="{{ route('login') }}"><span><small>06</small>Login</span></a></li> --}}
-                            <li><a href="{{ route('register') }}"><span><small>07</small>Register</span></a></li>
+                            <li @class(['active' => Route::is('login')])><a
+                                    href="{{ route('login') }}"><span><small>06</small>Login</span></a></li>
+                            <li @class(['active' => Route::is('register')])><a
+                                    href="{{ route('register') }}"><span><small>07</small>Register</span></a></li>
                         @endauth
                     </ul>
                 </div>
