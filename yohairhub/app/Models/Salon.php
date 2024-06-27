@@ -70,4 +70,9 @@ class Salon extends Model
     {
         return $this->hasMany(SalonComment::class);
     }
+
+    public function bookings()
+    {
+        return $this->hasMany(SalonBooking::class);
+    }
 }

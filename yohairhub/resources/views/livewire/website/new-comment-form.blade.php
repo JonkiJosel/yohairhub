@@ -1,4 +1,4 @@
-<div class="comment-form-wrap pt-5">
+<div id="commentForm" class="comment-form-wrap pt-5">
     <h3 class="mb-5">Leave a comment</h3>
     <form action="{{ route('website.salon.newComment', ['uuid' => $salon->uuid]) }}" method="post" class="p-5 bg-light">
         @csrf

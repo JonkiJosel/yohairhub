@@ -46,7 +46,7 @@ class MakeNewReservationModal extends Component
         $this->validate([
             'customerName' => 'required|string|max:255',
             'customerEmail' => 'nullable|email',
-            'customerPhone' => 'nullable|string|max:15',
+            'customerPhone' => 'nullable|string|max:20',
             'reservationDate' => 'required|date',
             'reservationTime' => 'nullable|date_format:H:i',
             'selectedHairstyle' => 'nullable|exists:salon_hair_styles,id',
@@ -80,7 +80,7 @@ class MakeNewReservationModal extends Component
             'special_requests' => $this->specialRequests ?? null,
         ]);
 
-        // Optionally send a confirmation email if email is provided
+        // // Optionally send a confirmation email if email is provided
         if (!empty($this->customerEmail)) {
             Mail::to($this->customerEmail)->send(new CustomerReservationCust($reservation));
         }
