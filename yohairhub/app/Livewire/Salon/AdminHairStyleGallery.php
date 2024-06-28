@@ -82,7 +82,7 @@ class AdminHairStyleGallery extends Component
             Mail::to($salonOwnerEmail)->send(new ImageDeletedNotification($salon, $image));
 
             // Delete the image
-            // $image->delete();
+            $image->delete();
 
             noty()->addSuccess('Image deleted successfully and notification sent to salon owner.');
         } else {
