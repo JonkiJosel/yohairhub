@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
 
         $user = \App\Models\User::factory()->create([
             'name' => 'Nkinzi',
-            'email' => 'jonki@yohairhub.com',
+            'email' => 'nkinzijozeline@gmail.com',
             'password' => Hash::make('kali'), 
         ]);
 
@@ -53,6 +53,6 @@ class DatabaseSeeder extends Seeder
 
 
         // call UserSeeder
-        $this->call(UserSeeder::class);
+        // $this->call(UserSeeder::class);
     }
 }

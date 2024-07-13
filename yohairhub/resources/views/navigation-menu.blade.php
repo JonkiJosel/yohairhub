@@ -20,9 +20,9 @@
                         {{ __('My Salon') }}
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('bookings.show') }}" :active="request()->routeIs('bookings*')">
+                    {{-- <x-nav-link href="{{ route('bookings.show') }}" :active="request()->routeIs('bookings*')">
                         {{ __('Bookings') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
 
                     @if (Auth::user()->hasRole('admin'))
                         <x-nav-link href="{{ route('all_salons') }}" :active="request()->routeIs('all_salons*')">
@@ -186,9 +186,9 @@
                 {{ __('My Salon') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link href="{{ route('bookings.show') }}" :active="request()->routeIs('bookings*')">
+            {{-- <x-responsive-nav-link href="{{ route('bookings.show') }}" :active="request()->routeIs('bookings*')">
                 {{ __('Bookings') }}
-            </x-responsive-nav-link>
+            </x-responsive-nav-link> --}}
 
             @if (Auth::user()->hasRole('admin'))
                 <x-responsive-nav-link href="{{ route('all_salons') }}" :active="request()->routeIs('all_salons*')">

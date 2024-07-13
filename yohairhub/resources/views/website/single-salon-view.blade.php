@@ -26,6 +26,11 @@
                                 <span>{{ $salon->name }}</span>
                             </p>
                             <h1 class="mb-5 bread">{{ $salon->name }}</h1>
+                            <div class="mb-4">
+                                <a href="#book" class="btn btn-primary btn-lg">
+                                    Book Now
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

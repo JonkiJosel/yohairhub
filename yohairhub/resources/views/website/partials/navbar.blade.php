@@ -1,5 +1,11 @@
 <nav id="colorlib-main-nav" role="navigation">
-    <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
+
+    <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active">
+        <span>
+            <i class="bi bi-list"></i>
+        </span>
+    </a>
+
     <div class="js-fullheight colorlib-table">
         <div class="img" style="background-image: url({{ asset('looks/images/bg_2.jpg') }});"></div>
         <div class="colorlib-table-cell js-fullheight">

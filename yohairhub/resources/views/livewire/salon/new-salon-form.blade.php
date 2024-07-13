@@ -1,6 +1,6 @@
 <div>
     {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
-    <x-form-section submit="createSalon">
+    <x-form-section submit="">
         <x-slot name="title">
             {{ __('Salon Details') }}
         </x-slot>
