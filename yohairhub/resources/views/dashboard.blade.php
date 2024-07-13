@@ -21,6 +21,10 @@
     </x-slot>
 
     <div class="py-4 px-10">
+        @livewire('dashboard.bookings-today')
+        <x-section-border />
+        @livewire('dashboard.new-booking-requests')
+        <x-section-border />
         @if (auth()->user()->hasRole('admin'))
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <livewire:dashboard.total-salons-card />
@@ -38,8 +42,12 @@
                 <livewire:dashboard.trending-salons />
             </div>
             <x-section-border />
+
             @livewire('dashboard.salons-created-per-month')
-        @else
+       
         @endif
+
+        <livewire:dashboard\bookings-today />
+
     </div>
 </x-app-layout>
