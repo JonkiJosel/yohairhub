@@ -23,7 +23,7 @@
                         <div class="col-md-7 ftco-animate">
                             <div class="img-2 d-flex justify-content-center align-items-center"
                                 style="background-image: url('{{ asset('looks/images/bg_1.jpg') }}');">
-                                <a href="https://vimeo.com/45830194" class="button popup-vimeo"><span
+                                <a href="{{asset('looks/images/video.mp4')}}" class="button popup-vimeo"><span
                                         class="ion-ios-play"></span></a>
                             </div>
                         </div>

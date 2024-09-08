@@ -19,12 +19,9 @@
                                 </span>
                             </div>
                             <div class="text">
-                                <p class="mb-5">Far far away, behind the word mountains, far from the
-                                    countries Vokalia and Consonantia, there live the blind texts. Separated
-                                    they live in Bookmarksgrove right at the coast of the Semantics, a large
-                                    language ocean.</p>
-                                <p class="name">Mike Lewis</p>
-                                <span class="position">Architect</span>
+                                <p class="mb-5">Longtime ago , we used to hassle about looking for quality hairstylists but thanks for this ohairhub , we are able toget quality hairdesigns</p>
+                                <p class="name">Jordan Ibra</p>
+                                <span class="position">Hairstylist</span>
                             </div>
                         </div>
                     </div>
@@ -37,12 +34,9 @@
                                 </span>
                             </div>
                             <div class="text">
-                                <p class="mb-5">Far far away, behind the word mountains, far from the
-                                    countries Vokalia and Consonantia, there live the blind texts. Separated
-                                    they live in Bookmarksgrove right at the coast of the Semantics, a large
-                                    language ocean.</p>
-                                <p class="name">Dennis Green</p>
-                                <span class="position">Architect</span>
+                                <p class="mb-5">PERFECTION INDEED</p>
+                                <p class="name">Rachel Alice</p>
+                                <span class="position">braider</span>
                             </div>
                         </div>
                     </div>
@@ -55,12 +49,9 @@
                                 </span>
                             </div>
                             <div class="text">
-                                <p class="mb-5">Far far away, behind the word mountains, far from the
-                                    countries Vokalia and Consonantia, there live the blind texts. Separated
-                                    they live in Bookmarksgrove right at the coast of the Semantics, a large
-                                    language ocean.</p>
-                                <p class="name">Dennis Green</p>
-                                <span class="position">Architect</span>
+                                <p class="mb-5">Longtime ago , we used to hassle about looking for quality hairstylists but thanks for this ohairhub , we are able toget quality hairdesign</p>
+                                <p class="name">Tony Kisz</p>
+                                <span class="position">Styler</span>
                             </div>
                         </div>
                     </div>
@@ -73,11 +64,8 @@
                                 </span>
                             </div>
                             <div class="text">
-                                <p class="mb-5">Far far away, behind the word mountains, far from the
-                                    countries Vokalia and Consonantia, there live the blind texts. Separated
-                                    they live in Bookmarksgrove right at the coast of the Semantics, a large
-                                    language ocean.</p>
-                                <p class="name">Dennis Green</p>
+                                <p class="mb-5">Longtime ago , we used to hassle about looking for quality hairstylists but thanks for this ohairhub , we are able toget quality hairdesign</p>
+                                <p class="name">Jonki Josel</p>
                                 <span class="position">Customer</span>
                             </div>
                         </div>
