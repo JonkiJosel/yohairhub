@@ -54,9 +54,9 @@
                     Copyright &copy;
                     <script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <i
+                    </script> All rights reserved | Designed <i
                         class="icon-heart mx-1" aria-hidden="true"></i> by <a
-                        href="https://hollytechsolnz.com" target="_blank">Holly Tech Solutions</a>
+                        href="https://hollytechsolnz.com" target="_blank">Nkinzi Joseline</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
             </div>
